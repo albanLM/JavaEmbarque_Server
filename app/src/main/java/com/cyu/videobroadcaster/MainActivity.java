@@ -40,32 +40,40 @@ public class MainActivity extends AppCompatActivity implements AddVideoDialog.No
 
         // Asks permissions to use storage
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            if (checkSelfPermission(Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_NETWORK_STATE}, 1);
+            }
+            if (checkSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 1);
             }
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+            }
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            }
+
         }
 
-        initViews();
-    }
-
-    private void initViews() {
         videoList = findViewById(R.id.recycler_view_video_list);
         videoList.setHasFixedSize(true); // to improve performance
         layoutManager = new LinearLayoutManager(this);
         videoList.setLayoutManager(layoutManager);
 
+        updateVideoList();
+    }
+
+    private void updateVideoList() {
         File[] videoFiles = getVideoList(); // Get the file names of the videos
         ArrayList<String> titles = new ArrayList<>();
         ArrayList<Drawable> thumbnails = new ArrayList<>();
-        for (File file : videoFiles) {
-            ImageView image = new ImageView(MainActivity.this);
-            thumbnails.add(image.getDrawable());
-            titles.add(file.getName());
+        if (videoFiles != null) {
+            for (File file : videoFiles) {
+                ImageView image = new ImageView(MainActivity.this);
+                thumbnails.add(image.getDrawable());
+                titles.add(file.getName());
+            }
         }
-
         mAdapter = new VideoList(titles, thumbnails);
         videoList.setAdapter(mAdapter);
     }
@@ -94,7 +102,9 @@ public class MainActivity extends AppCompatActivity implements AddVideoDialog.No
 
         // Tries to download the file
         try {
+            Toast.makeText(this, "downloading the video", Toast.LENGTH_SHORT).show();
             youtubeExtractor.downloadFromURL(url);
+            updateVideoList();
         } catch (YoutubeDLException | InterruptedException e) {
             e.printStackTrace();
             Toast.makeText(MainActivity.this, "failed to download the video", Toast.LENGTH_LONG).show();

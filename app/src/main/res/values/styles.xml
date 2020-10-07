@@ -1,6 +1,13 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--<item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="colorError">@color/errorColor</item>
+        <item name="colorButtonNormal">@color/buttonColor</item>
+        <item name="colorBackgroundFloating">@color/backgroundColor</item>
+        <item name="backgroundColor">@color/backgroundColor</item>
+        <item name="hintTextColor">@color/hintColor</item>-->
     </style>
 
 </resources>

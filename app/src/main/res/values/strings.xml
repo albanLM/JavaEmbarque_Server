@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">VideoBroadcaster</string>
     <string name="add_ext_label">Add video</string>
+    <string name="add_video_dialog_text">Enter the URL of the video you want to download</string>
+    <string name="add_video_dialog_hint">Video\'s URL</string>
+    <string name="download">Download</string>
+    <string name="cancel">Cancel</string>
+    <string name="placeholder_text_row">Exemple de vidéo</string>
 </resources>

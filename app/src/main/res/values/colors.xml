@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--?xml version="1.0" encoding="UTF-8"?-->
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="primaryColor">#ff2196f3</color>
+    <color name="primaryColorLight">#ffbbdefb</color>
+    <color name="primaryColorDark">#ff1976d2</color>
+    <color name="accentColor">#ff2196f3</color>
+    <color name="canvasColor">#fffafafa</color>
+    <color name="scaffoldBackgroundColor">#fffafafa</color>
+    <color name="bottomAppBarColor">#ffffffff</color>
+    <color name="cardColor">#ffffffff</color>
+    <color name="dividerColor">#1f000000</color>
+    <color name="highlightColor">#66bcbcbc</color>
+    <color name="splashColor">#66c8c8c8</color>
+    <color name="selectedRowColor">#fff5f5f5</color>
+    <color name="unselectedWidgetColor">#8a000000</color>
+    <color name="disabledColor">#61000000</color>
+    <color name="buttonColor">#ffe0e0e0</color>
+    <color name="toggleableActiveColor">#ff1e88e5</color>
+    <color name="secondaryHeaderColor">#ffe3f2fd</color>
+    <color name="textSelectionColor">#ff90caf9</color>
+    <color name="cursorColor">#ff4285f4</color>
+    <color name="textSelectionHandleColor">#ff64b5f6</color>
+    <color name="backgroundColor">#ff90caf9</color>
+    <color name="dialogBackgroundColor">#ffffffff</color>
+    <color name="indicatorColor">#ff2196f3</color>
+    <color name="hintColor">#8a000000</color>
+    <color name="errorColor">#ffd32f2f</color>
 </resources>
